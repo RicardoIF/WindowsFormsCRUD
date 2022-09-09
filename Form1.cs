@@ -279,6 +279,7 @@ namespace WindowsFormsCRUD
             btUpdate.Enabled = false;
             btDelete.Enabled = false;
             GetPeopleById(Peopleid);
+
         }
 
     }
