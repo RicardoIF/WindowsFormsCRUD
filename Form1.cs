@@ -235,11 +235,17 @@ namespace WindowsFormsCRUD
                 Peopleid = dgvPeople.SelectedRows[0].Cells["Id"].Value.ToString();
                 btUpdate.Visible = true;
                 btDelete.Visible = true;
+                btUpdate.Enabled = true;
+                btDelete.Enabled = true;
+                pnlForm.Enabled = true;
+                GetPeopleById(Peopleid);
             }
             else
             {
                 btUpdate.Visible = false;
                 btDelete.Visible = false;
+                btUpdate.Enabled = false;
+                btDelete.Enabled = false;
             }
         }
 
@@ -270,16 +276,114 @@ namespace WindowsFormsCRUD
         private void btUpdate_Click(object sender, EventArgs e)
         {
 
-            
-
-            btAdd.Enabled = false;
-            pnlForm.Enabled = true;
-            btCancel.Enabled = true;
-            btSave.Enabled = true;
-            btUpdate.Enabled = false;
-            btDelete.Enabled = false;
-            GetPeopleById(Peopleid);
+            var res = MessageBox.Show("Esta seguro de actualizar este registro!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+            if (res.Equals(DialogResult.OK))
+            {
+                UpdatePeople(Peopleid);
+            }
         }
 
+        private void UpdatePeople(string peopleid)
+        {
+            var people = db.People.FirstOrDefault(x => x.Id == peopleid);
+            people.FirstName = txtFirstName.Text;
+            people.MiddleName = txtMidleName.Text;
+            people.LastName = txtLastName.Text;
+            people.ClientTypeId = Convert.ToInt32(cbClientType.SelectedValue);
+            if (cbContactType.SelectedIndex != 0)
+            {
+                people.ContactTypeId = Convert.ToInt32(cbContactType.SelectedIndex);
+            }
+            people.SupportStaff = chkSupportStaff.Checked;
+            people.PhoneNumber = txtPhoneNumber.Text;
+            people.EmailAddress = txtEmail.Text;
+            people.Enabled = true;
+            people.CreatedDate = DateTime.Now;
+
+            db.Entry(people).State = System.Data.Entity.EntityState.Modified;
+            var peopleSaved = db.SaveChanges() > 0;
+
+            if (peopleSaved)
+            {
+                var user = db.Users.FirstOrDefault(x => x.PeopleId == peopleid);
+
+                user.Username = txtUsername.Text;
+                user.Password = txtPassword.Text;
+                user.LicenseTypeId = Convert.ToInt32(cbLicenceType.SelectedIndex);
+                user.Enabled = true;
+                user.CreatedDate = DateTime.Now;
+
+
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                var userSaved = db.SaveChanges() > 0;
+
+                if (userSaved)
+                {
+                    MessageBox.Show("The person has been added!");
+                    GetPeople();
+                    DefaultControl();
+
+
+                    btAdd.Enabled = true;
+                    pnlForm.Enabled = false;
+                    btCancel.Enabled = false;
+                    btSave.Enabled = false;
+                    btUpdate.Enabled = false;
+                    btDelete.Enabled = false;
+                    btUpdate.Visible = false;
+                    btDelete.Visible = false;
+                }
+            }
+        }
+
+        private void chkSupportStaff_CheckedChanged(object sender, EventArgs e)
+        {
+            chkSupportStaff.Text = chkSupportStaff.Checked ? "SI" : "NO";
+        }
+
+        private void clientTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+
+        private void contactTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Esta seguro de eliminar este registro!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+            if (res.Equals(DialogResult.OK))
+            {
+                DeletePeopleType(Peopleid);
+            }
+        }
+
+        private void DeletePeopleType(string peopleid)
+        {
+            DefaultControl();
+            var people = db.People.FirstOrDefault(x => x.Id == peopleid);
+            db.People.Remove(people);
+            var res = db.SaveChanges() > 0;
+            if (res)
+            {
+                MessageBox.Show("The client type has been added!");
+
+                GetClientType();
+                DefaultControl();
+
+                btAdd.Enabled = true;
+                pnlForm.Enabled = false;
+                btCancel.Enabled = false;
+                btSave.Enabled = false;
+                btUpdate.Enabled = false;
+                btDelete.Enabled = false;
+                btUpdate.Visible = false;
+                btDelete.Visible = false;
+            }
+        }
     }
 }

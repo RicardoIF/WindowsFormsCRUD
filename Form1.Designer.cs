@@ -34,17 +34,12 @@ namespace WindowsFormsCRUD
             this.label10 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.dgvPeople = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlForm = new System.Windows.Forms.Panel();
+            this.txtCreateDate = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btCancel = new System.Windows.Forms.Button();
-            this.btSave = new System.Windows.Forms.Button();
-            this.btAdd = new System.Windows.Forms.Button();
             this.chkSupportStaff = new System.Windows.Forms.CheckBox();
             this.cbContactType = new System.Windows.Forms.ComboBox();
             this.cbClientType = new System.Windows.Forms.ComboBox();
@@ -75,24 +70,34 @@ namespace WindowsFormsCRUD
             this.label3 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btUpdate = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btDelete = new System.Windows.Forms.Button();
-            this.txtCreateDate = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.btUpdate = new System.Windows.Forms.Button();
+            this.btCancel = new System.Windows.Forms.Button();
+            this.btSave = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlForm.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 13);
+            this.label1.Location = new System.Drawing.Point(93, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(365, 24);
@@ -102,8 +107,8 @@ namespace WindowsFormsCRUD
             // panel1
             // 
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(7, 189);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(7, 224);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(514, 36);
             this.panel1.TabIndex = 18;
@@ -123,7 +128,7 @@ namespace WindowsFormsCRUD
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(97, 49);
+            this.lblDate.Location = new System.Drawing.Point(97, 84);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(11, 13);
@@ -133,25 +138,14 @@ namespace WindowsFormsCRUD
             // dgvPeople
             // 
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeople.Location = new System.Drawing.Point(7, 66);
-            this.dgvPeople.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPeople.Location = new System.Drawing.Point(7, 101);
+            this.dgvPeople.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPeople.Name = "dgvPeople";
             this.dgvPeople.RowHeadersWidth = 72;
             this.dgvPeople.RowTemplate.Height = 31;
             this.dgvPeople.Size = new System.Drawing.Size(514, 108);
             this.dgvPeople.TabIndex = 31;
             this.dgvPeople.Click += new System.EventHandler(this.dgvPeople_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsCRUD.Properties.Resources.logo_intec;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // pnlForm
             // 
@@ -180,10 +174,28 @@ namespace WindowsFormsCRUD
             this.pnlForm.Controls.Add(this.txtFirstName);
             this.pnlForm.Controls.Add(this.label2);
             this.pnlForm.Enabled = false;
-            this.pnlForm.Location = new System.Drawing.Point(7, 230);
+            this.pnlForm.Location = new System.Drawing.Point(7, 265);
             this.pnlForm.Name = "pnlForm";
             this.pnlForm.Size = new System.Drawing.Size(514, 382);
             this.pnlForm.TabIndex = 32;
+            // 
+            // txtCreateDate
+            // 
+            this.txtCreateDate.Location = new System.Drawing.Point(352, 92);
+            this.txtCreateDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCreateDate.Name = "txtCreateDate";
+            this.txtCreateDate.Size = new System.Drawing.Size(137, 20);
+            this.txtCreateDate.TabIndex = 61;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(278, 92);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 13);
+            this.label16.TabIndex = 60;
+            this.label16.Text = "Create Date";
             // 
             // lblPhone
             // 
@@ -218,74 +230,6 @@ namespace WindowsFormsCRUD
             this.lblFirstName.Text = "(*)";
             this.lblFirstName.Visible = false;
             // 
-            // button2
-            // 
-            this.button2.Image = global::WindowsFormsCRUD.Properties.Resources.Pencil_icon__1_;
-            this.button2.Location = new System.Drawing.Point(219, 115);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 17);
-            this.button2.TabIndex = 56;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::WindowsFormsCRUD.Properties.Resources.Pencil_icon__1_;
-            this.button1.Location = new System.Drawing.Point(219, 91);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 17);
-            this.button1.TabIndex = 38;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btDelete);
-            this.panel3.Controls.Add(this.btUpdate);
-            this.panel3.Controls.Add(this.btCancel);
-            this.panel3.Controls.Add(this.btSave);
-            this.panel3.Controls.Add(this.btAdd);
-            this.panel3.Location = new System.Drawing.Point(9, 612);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(514, 36);
-            this.panel3.TabIndex = 52;
-            // 
-            // btCancel
-            // 
-            this.btCancel.Enabled = false;
-            this.btCancel.Location = new System.Drawing.Point(227, 7);
-            this.btCancel.Margin = new System.Windows.Forms.Padding(2);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(81, 22);
-            this.btCancel.TabIndex = 2;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.UseVisualStyleBackColor = true;
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
-            // 
-            // btSave
-            // 
-            this.btSave.Enabled = false;
-            this.btSave.Location = new System.Drawing.Point(119, 7);
-            this.btSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(81, 22);
-            this.btSave.TabIndex = 1;
-            this.btSave.Text = "Save";
-            this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click_1);
-            // 
-            // btAdd
-            // 
-            this.btAdd.Location = new System.Drawing.Point(7, 7);
-            this.btAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(81, 22);
-            this.btAdd.TabIndex = 0;
-            this.btAdd.Text = "Add";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click_1);
-            // 
             // chkSupportStaff
             // 
             this.chkSupportStaff.AutoSize = true;
@@ -296,7 +240,7 @@ namespace WindowsFormsCRUD
             this.chkSupportStaff.TabIndex = 55;
             this.chkSupportStaff.Text = "No";
             this.chkSupportStaff.UseVisualStyleBackColor = true;
-            this.chkSupportStaff.Click += new System.EventHandler(this.btUpdate_Click);
+            this.chkSupportStaff.CheckedChanged += new System.EventHandler(this.chkSupportStaff_CheckedChanged);
             // 
             // cbContactType
             // 
@@ -602,18 +546,18 @@ namespace WindowsFormsCRUD
             this.label2.TabIndex = 37;
             this.label2.Text = "FirstName";
             // 
-            // btUpdate
+            // panel3
             // 
-            this.btUpdate.BackColor = System.Drawing.Color.Green;
-            this.btUpdate.Location = new System.Drawing.Point(323, 7);
-            this.btUpdate.Margin = new System.Windows.Forms.Padding(2);
-            this.btUpdate.Name = "btUpdate";
-            this.btUpdate.Size = new System.Drawing.Size(81, 22);
-            this.btUpdate.TabIndex = 3;
-            this.btUpdate.Text = "Update";
-            this.btUpdate.UseVisualStyleBackColor = false;
-            this.btUpdate.Visible = false;
-            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
+            this.panel3.Controls.Add(this.btDelete);
+            this.panel3.Controls.Add(this.btUpdate);
+            this.panel3.Controls.Add(this.btCancel);
+            this.panel3.Controls.Add(this.btSave);
+            this.panel3.Controls.Add(this.btAdd);
+            this.panel3.Location = new System.Drawing.Point(9, 647);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(514, 36);
+            this.panel3.TabIndex = 52;
             // 
             // btDelete
             // 
@@ -627,30 +571,125 @@ namespace WindowsFormsCRUD
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Visible = false;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
-            // txtCreateDate
+            // btUpdate
             // 
-            this.txtCreateDate.Location = new System.Drawing.Point(352, 92);
-            this.txtCreateDate.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCreateDate.Name = "txtCreateDate";
-            this.txtCreateDate.Size = new System.Drawing.Size(137, 20);
-            this.txtCreateDate.TabIndex = 61;
+            this.btUpdate.BackColor = System.Drawing.Color.Green;
+            this.btUpdate.Location = new System.Drawing.Point(323, 7);
+            this.btUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btUpdate.Name = "btUpdate";
+            this.btUpdate.Size = new System.Drawing.Size(81, 22);
+            this.btUpdate.TabIndex = 3;
+            this.btUpdate.Text = "Update";
+            this.btUpdate.UseVisualStyleBackColor = false;
+            this.btUpdate.Visible = false;
+            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
-            // label16
+            // btCancel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(278, 92);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(64, 13);
-            this.label16.TabIndex = 60;
-            this.label16.Text = "Create Date";
+            this.btCancel.Enabled = false;
+            this.btCancel.Location = new System.Drawing.Point(227, 7);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(81, 22);
+            this.btCancel.TabIndex = 2;
+            this.btCancel.Text = "Cancel";
+            this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            // 
+            // btSave
+            // 
+            this.btSave.Enabled = false;
+            this.btSave.Location = new System.Drawing.Point(119, 7);
+            this.btSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(81, 22);
+            this.btSave.TabIndex = 1;
+            this.btSave.Text = "Save";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click_1);
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(7, 7);
+            this.btAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(81, 22);
+            this.btAdd.TabIndex = 0;
+            this.btAdd.Text = "Add";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click_1);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(527, 24);
+            this.menuStrip1.TabIndex = 53;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientTypeToolStripMenuItem,
+            this.contactTypeToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // clientTypeToolStripMenuItem
+            // 
+            this.clientTypeToolStripMenuItem.Name = "clientTypeToolStripMenuItem";
+            this.clientTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientTypeToolStripMenuItem.Text = "Client Type";
+            this.clientTypeToolStripMenuItem.Click += new System.EventHandler(this.clientTypeToolStripMenuItem_Click);
+            // 
+            // contactTypeToolStripMenuItem
+            // 
+            this.contactTypeToolStripMenuItem.Name = "contactTypeToolStripMenuItem";
+            this.contactTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.contactTypeToolStripMenuItem.Text = "Contact Type";
+            this.contactTypeToolStripMenuItem.Click += new System.EventHandler(this.contactTypeToolStripMenuItem_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = global::WindowsFormsCRUD.Properties.Resources.Pencil_icon__1_;
+            this.button2.Location = new System.Drawing.Point(219, 115);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(33, 17);
+            this.button2.TabIndex = 56;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::WindowsFormsCRUD.Properties.Resources.Pencil_icon__1_;
+            this.button1.Location = new System.Drawing.Point(219, 91);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 17);
+            this.button1.TabIndex = 38;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsCRUD.Properties.Resources.logo_intec;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 35);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 655);
+            this.ClientSize = new System.Drawing.Size(527, 695);
             this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.dgvPeople);
             this.Controls.Add(this.lblDate);
@@ -658,20 +697,24 @@ namespace WindowsFormsCRUD
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlForm.ResumeLayout(false);
             this.pnlForm.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -729,6 +772,10 @@ namespace WindowsFormsCRUD
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientTypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactTypeToolStripMenuItem;
     }
 }
 
