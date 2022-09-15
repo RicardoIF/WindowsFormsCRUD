@@ -38,7 +38,7 @@ namespace WindowsFormsCRUD
 
         private void GetRestriction()
         {
-            var restrictions  = db.Restrictions.ToList();
+            var restrictions = db.Restrictions.ToList();
             foreach (var item in restrictions)
             {
                 cblRestrictions.Items.Add(item.Name);
@@ -52,7 +52,7 @@ namespace WindowsFormsCRUD
             {
                 cblPermisons.Items.Add(item.Name);
             }
-            
+
         }
 
         private void GetClientType()
@@ -300,13 +300,66 @@ namespace WindowsFormsCRUD
             people.Enabled = true;
             people.CreatedDate = DateTime.Now;
 
-            btAdd.Enabled = false;
-            pnlForm.Enabled = true;
-            btCancel.Enabled = true;
-            btSave.Enabled = true;
-            btUpdate.Enabled = false;
-            btDelete.Enabled = false;
-            GetPeopleById(Peopleid);
+            db.Entry(people).State = System.Data.Entity.EntityState.Modified;
+            var peopleSaved = db.SaveChanges() > 0;
+
+            if (peopleSaved)
+            {
+                var user = db.Users.FirstOrDefault(x => x.PeopleId == peopleid);
+
+                user.Username = txtUsername.Text;
+                user.Password = txtPassword.Text;
+                user.LicenseTypeId = Convert.ToInt32(cbLicenceType.SelectedIndex);
+                user.Enabled = true;
+                user.CreatedDate = DateTime.Now;
+
+
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                var userSaved = db.SaveChanges() > 0;
+
+                if (userSaved)
+                {
+                    MessageBox.Show("The person has been added!");
+                    GetPeople();
+                    DefaultControl();
+
+
+                    btAdd.Enabled = true;
+                    pnlForm.Enabled = false;
+                    btCancel.Enabled = false;
+                    btSave.Enabled = false;
+                    btUpdate.Enabled = false;
+                    btDelete.Enabled = false;
+                    btUpdate.Visible = false;
+                    btDelete.Visible = false;
+                }
+            }
+        }
+
+        private void chkSupportStaff_CheckedChanged(object sender, EventArgs e)
+        {
+            chkSupportStaff.Text = chkSupportStaff.Checked ? "SI" : "NO";
+        }
+
+        private void clientTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+
+        private void contactTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.Show();
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            var res = MessageBox.Show("Esta seguro de eliminar este registro!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
+            if (res.Equals(DialogResult.OK))
+            {
+                DeletePeopleType(Peopleid);
+            }
         }
 
         private void DeletePeopleType(string peopleid)

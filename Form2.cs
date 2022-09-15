@@ -87,8 +87,8 @@ namespace WindowsFormsCRUD
         private bool ValidateForm()
         {
             Msg = new List<string>();
-            lblClientTypeName.Enabled = false;
-            lblClientTypeDescription.Enabled = false;
+            lblClientTypeName.Visible = false;
+            lblClientTypeDescription.Visible = false;
             bool result = true;
 
             if (string.IsNullOrEmpty(txtClientTypeName.Text))
